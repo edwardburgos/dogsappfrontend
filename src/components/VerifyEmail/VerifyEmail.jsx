@@ -51,18 +51,18 @@ export default function VerifyEmail({ token, reason, expires }) {
                     if (['verifyEmail', 'deleteAccountEmail', 'resetPassword', 'definePassword'].includes(reason)) {
                         let user = {}
                         try {
-                            let infoReq = await realAxios.get('http://localhost:3001/users/info', { headers: { Authorization: token } })
+                            let infoReq = await realAxios.get(`${process.env.REACT_APP_BACKEND}/users/info`, { headers: { Authorization: token } })
                             user = infoReq.data.user
                         } catch (e) {
                             user = {};
                         }
                         if (Object.keys(user).length) {
                             if (reason === 'deleteAccountEmail') {
-                                await realAxios.delete('http://localhost:3001/users', { headers: { Authorization: token } })
+                                await realAxios.delete(`${process.env.REACT_APP_BACKEND}/users`, { headers: { Authorization: token } })
                                 showMessage(`${user.fullname} your account was deleted`)
                                 return history.push('/home')
                             } else if (reason === 'verifyEmail') {
-                                const verificationState = await realAxios.put('http://localhost:3001/users/verifyUser', { email: user.email })
+                                const verificationState = await realAxios.put(`${process.env.REACT_APP_BACKEND}/users/verifyUser`, { email: user.email })
                                 verificationState.data === 'Already verified' ? showMessage(`${user.fullname} your account is already verified`) : showMessage(`${user.fullname} your account was verified`)
                                 if (!localStorage.getItem("token") && !localStorage.getItem("expiration")) {
                                     setLocalStorage({ token, expiresIn: expires });

@@ -5,7 +5,7 @@ const { isLoggedIn } = require('./extras/globalFunctions');
 
 
 const customAxios = axios.default.create({
-    baseURL: `http://localhost:3001`,
+    baseURL: process.env.REACT_APP_BACKEND,
     //timeout: 10000, 
     //headers: { 'api-key': 'eyJz-CI6Ikp-4pWY-lhdCI6' }
 });
