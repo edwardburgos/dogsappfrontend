@@ -1,0 +1,109 @@
+.columns {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardDetail {
+  width: 50%;
+  text-align: center;
+  padding-right: 5%;
+}
+
+.onlyColumn {
+  width: 50%;
+  text-align: center;
+}
+
+.specimens {
+  width: 50%;
+  padding-left: 5%;
+}
+
+.petsTitle {
+  margin-bottom: 16px;
+}
+
+@media only screen and (min-width: 992px) {
+  .cardDetail {
+    padding: 0 5% 0 10%;
+  }
+  .specimens {
+    padding: 0 10% 0 5%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cardDetail, .specimens, .onlyColumn {
+    padding: 0;
+    width: 100%;
+  }
+  .petsTitle {
+    margin-top: 16px;
+  }
+}
+
+.container {
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+} 
+
+
+.image {
+  width:100%;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.title {
+  margin-bottom: 32px;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.temperamentsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.test {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 4px 8px 4px;
+}
+
+.temperament {
+  background-color: #2962ff;
+  color: white;
+  padding: 0.375rem 0.75rem;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  margin: 0;
+}
+
+.query {
+    display: inline-block;
+    background-color: rgba(231, 233, 235);
+    padding: 16px;
+    width: 100%;
+    margin: 16px 0;
+    border-radius: 1rem;
+    border: 1px rgba(231, 233, 235) solid;
+}
+
+.postsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

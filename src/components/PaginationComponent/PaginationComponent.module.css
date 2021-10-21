@@ -1,0 +1,41 @@
+.pagination {
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  align-self: flex-end;
+  margin-bottom: 0 !important;
+}
+
+.activo span {
+  background-color: #2962ff !important;
+  border-color: #2962ff !important;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 1rem;
+  margin-left: 8px !important;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+.item a {
+  color: #2962ff !important;
+}
+
+.item a:hover {
+  box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+  -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+}
+
+.pagination a {
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 1rem;
+  margin: 0 8px 16px 8px !important;
+  border-radius: 5px;
+  border: 1px solid #E7EAED;
+}
+
+.iconBack {
+  height: 16px;
+  width: 16px;
+  vertical-align: text-bottom;
+}

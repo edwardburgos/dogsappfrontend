@@ -1,0 +1,23 @@
+.contentCenter {
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.errorGlobalContainer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.errorMain {
+    background-color: #f8d7da;
+    border: 1px #f5c2c7 solid;
+    color: #842029;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+}

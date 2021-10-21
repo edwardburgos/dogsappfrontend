@@ -1,0 +1,41 @@
+.container {
+    height: var(--height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+} 
+
+.content {
+    min-height: calc(100vh - 113px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contentCenter {
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.errorGlobal {
+    background-color: #f8d7da;
+    border: 1px #f5c2c7 solid;
+    color: #842029;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 0;
+    border-radius: 5px;
+}
+
+
+.cardsContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+  

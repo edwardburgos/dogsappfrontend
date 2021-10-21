@@ -1,0 +1,22 @@
+.container {
+    height: var(--height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+} 
+
+.cardsContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content {
+    min-height: calc(100vh - 122px);
+    display: flex;
+    align-items: center;
+    width: 100%;
+}

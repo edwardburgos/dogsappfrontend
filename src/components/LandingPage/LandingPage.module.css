@@ -1,0 +1,65 @@
+.container {
+    background: url('../../img/landingBackground.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #2962ff;
+    text-align: center;
+    height: 100vh;
+}
+  
+.buttonHome {
+    background-color: #2962ff;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+}
+
+
+.content {
+    background-color: rgba(231, 233, 235, 0.5);
+    position: absolute;
+    padding: 20px;
+    right: 10%;
+    top: 50%;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 1rem;
+    box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+    -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 32px !important;
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        background-image: url('../../img/landingBackgroundPhone.jpg');
+    }
+
+    .content {
+        right: 10%;
+        left: 10%;
+        -ms-transform: translateY(50%);
+        transform: translateY(50%);
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .content {
+        -ms-transform: translateY(35%);
+        transform: translateY(35%);
+    }
+}

@@ -1,0 +1,227 @@
+.container {
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+} 
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.formSignin .checkbox {
+  font-weight: 400;
+}
+
+.formSignin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.formSignin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.formSignin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.logo {
+  width: 80%;
+  margin-right: 20%;
+}
+
+.contentCenter {
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+}
+.image {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.image, .form {
+  width: 30%;
+}
+
+.input {
+  border-radius: 5px !important;
+}
+
+.inputPassword {
+  border-radius: 5px !important;
+  padding-right: 2.5rem !important;
+  margin: 0 !important;
+}
+
+.errorInput {
+  border-radius: 5px !important;
+  border: 1px solid #fc9696 !important;
+}
+
+.errorInput:focus {
+  border-color: #fe8686 !important;
+  outline: 0 !important;;
+  box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25) !important;
+}
+
+.iconDumb {
+  vertical-align: middle;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+.errorMessage {
+  color: red;
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.error, .description{
+  margin-top: 0.5rem;
+  color:red;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.errorGlobal {
+  background-color: #f8d7da;
+  border: 1px #f5c2c7 solid;
+  color: #842029;
+  display: block;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+}
+
+.description {
+  color: #000;
+}
+
+.infoForm {
+  text-align: left;
+}
+
+.registroLink {
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight: 600;
+  color: #2962ff
+}
+
+.googleButton {
+  display: flex !important;
+  align-items:center !important;
+  justify-content: center !important;
+  box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+  -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+}
+
+.googleLogo {
+  height: 1.2rem;
+  margin-right: 10px;
+}
+
+.test {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.tool-tip{
+	color: #fff;
+	background-color: rgba( 0, 0, 0, .7);
+	text-shadow: none;
+	font-size: .8em;
+	visibility: hidden;
+	-webkit-border-radius: 7px; 
+	-moz-border-radius: 7px; 
+	-o-border-radius: 7px; 
+	border-radius: 7px;	
+	text-align: center;	
+	opacity: 0;
+	z-index: 999;
+	padding: 3px 8px;	
+	position: absolute;
+	cursor: default;
+	-webkit-transition: all 240ms ease-in-out;
+	-moz-transition: all 240ms ease-in-out;
+	-ms-transition: all 240ms ease-in-out;
+	-o-transition: all 240ms ease-in-out;
+	transition: all 240ms ease-in-out;	
+  top: 50%;
+  right: auto;
+  left: 106%;
+  margin-top: -15px;
+  margin-right: auto;	
+  margin-left: auto;
+}
+
+.tool-tip:after{
+	left: -5px;
+	top: 50%;	
+	margin-top: -6px;
+	bottom: auto;
+	border-top-color: transparent;	
+  border-right-color: rgba( 0, 0, 0, .7);	
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  color: rgba(26,26,26,.7);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.message {
+  margin-bottom: 0;
+}
+
+.loadingButton {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingInButton {
+  height: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+  .image, .form {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .image, .form {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .image, .form {
+    width: 100%;
+  } 
+  .logo {
+    margin-right: 0;
+  }
+}

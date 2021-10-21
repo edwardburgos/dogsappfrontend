@@ -1,0 +1,109 @@
+:root {
+  --height: calc(100vh - 86px);
+}
+
+body {
+  margin: 0;
+  color: #000 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.btn, .form-control, .form-input {
+  font-weight: 400 !important;
+  font-size: 14px !important;
+} 
+
+.Toastify__toast--default {
+  color: #000 !important;
+  border-radius: 5px !important;
+  border: 1px;
+  box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+  -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+}
+
+.Toastify__close-button--default {
+  opacity: 1 !important;
+}
+
+.Toastify__progress-bar--default {
+  background: #2962ff !important;
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%) !important;
+  -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%) !important;
+  border: 1px transparent solid !important;
+}
+
+.disabled, .disabled:hover {
+  pointer-events: none !important;
+  opacity: .65 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #787878;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #787878;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #787878;
+}
+
+::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track:hover,
+::-webkit-scrollbar-track:active {
+background: #d4d4d4;
+}
+
+@media only screen and (max-width: 576px) {
+  .modal-dialog {
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+  }
+} 
+
+.modal-content {
+  border-radius: 12px !important;
+}
+
+.linkRR, .linkRR:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6, .bold{
+  font-weight: 600 !important;
+  margin-bottom: 16px !important;
+}
+
+.navbar-toggler-icon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.navbar-toggler {
+  line-height: 0.5 !important;
+}

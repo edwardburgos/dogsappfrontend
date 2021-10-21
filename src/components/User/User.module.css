@@ -1,0 +1,366 @@
+.container {
+    height: var(--height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  } 
+  
+  .loginButton {
+    background-color: #2962ff;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+  }
+  
+  .loginButton:hover {
+    color: white;
+    box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+    -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+  }
+  
+  .contentCenter {
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+  }
+    
+  .content {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .label {
+    margin-bottom: 0.5rem;
+    color: rgba(26,26,26,.7);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+  }
+  
+  
+  
+  .temperament {
+    display: flex;
+    align-items: center;
+    background-color: #2962ff;
+    color: white;
+    padding: 0.375rem 0.75rem;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    margin: 0;
+  }
+  
+  .temperamentsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .error {
+    margin-top: 0.5rem;
+    color:red;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  
+  .test {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 8px 16px 8px;
+  }
+  
+  .formInput, .selectInput, .errorInput, .errorSelect{
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-sizing: border-box;
+  }
+  
+  .selectInput, .errorSelect {
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;   
+  }
+  
+  .formInput:focus, .selectInput:focus {
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .errorInput, .errorSelect {
+    border: 1px solid #fc9696;
+  }
+  
+  .errorInput:focus, .errorSelect:focus {
+    background-color: #fff;
+    border-color: #fe8686;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25);
+  }
+  
+  .iconDelete {
+    padding-left: 0.75rem;
+  }
+  
+  .iconColor {
+    background-color: #2962ff;
+    vertical-align: middle;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .form {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .errorGlobal, .errorMain {
+    background-color: #f8d7da;
+    border: 1px #f5c2c7 solid;
+    color: #842029;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+  }
+  
+  .errorGlobalContainer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .imageContainer {
+    width: 50%;
+    padding-right: 5%;
+    
+  }
+
+  .cardDetail {
+    width: 50%;
+    text-align: center;
+    padding-right: 5%;
+  }
+  
+  .onlyColumn {
+    width: 50%;
+    text-align: center;
+  }
+
+
+
+  .labelProfile {
+    margin-bottom: 0.5rem;
+    color: rgba(26,26,26,.7);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+    width: 100%;
+  }
+  
+  .containerProfileImage {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .uploadingContainer {
+      height: 200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      object-fit: contain;
+      border-radius: 50%;
+  }
+  
+  .uploadingGif {
+    width: 50%;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+
+  .profilePic {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 16px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .countryFlag {
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .countryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .photoContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 400;
+    width: 100%;
+  }
+
+  .information, .informationMargin {
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .specimens {
+    width: 50%;
+    padding-left: 5%;
+  }
+
+  .petsTitle {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  
+
+  .postsContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .editButton {
+    margin-bottom: 16px;
+  }
+
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .photoContainer {
+      width: auto;
+    }
+    .information {
+      text-align: left;
+    }
+    .title {
+      text-align: left;
+    }
+    .countryContainer {
+      justify-content: flex-start;
+    }
+    .profilePic {
+      margin-right: 40px;
+      margin-bottom: 0;
+    }
+    .header {
+      flex-wrap: nowrap;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+  }
+
+  @media only screen and (min-width: 992px) {
+    .cardDetail {
+      padding: 0 5% 0 10%;
+    }
+    .specimens {
+      padding: 0 10% 0 5%;
+    }
+    .header {
+      width: 80%;
+    }
+  }
+  /* @media only screen and (min-width: 1400px) {
+    .header {
+      width: 50%;
+    }
+  } */
+
+/* 
+  @media only screen and (min-width: 768px) {
+    
+  }
+   */
+  @media only screen and (max-width: 768px) {
+    .cardDetail, .specimens, .onlyColumn {
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  .noPets {
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    margin: 16px 0 0 0;
+  }
+
+  .emptyVector {
+    height: 100px;
+    width: 100px;
+  }
+
+  .emptyVectorContainer {
+    width: 100%;
+  }
+
+  .registerPetButton {
+    width: 100%;
+    margin-bottom: 32px;
+  }

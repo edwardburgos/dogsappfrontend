@@ -1,0 +1,284 @@
+.container {
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+} 
+
+.center {
+  text-align: center;
+}
+
+.division {
+  position: relative;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.division:before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 12px;
+  background-color: #ededf4;
+}
+
+.division span {
+  background-color: #fff;
+  padding-left: 12px;
+  padding-right: 12px;
+  display: inline-block;
+  line-height: 24px;
+  position: relative;
+  z-index: 1;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.formSignin .checkbox {
+  font-weight: 400;
+}
+
+.formSignin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.formSignin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.formSignin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.marginBottom0 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* .logo {
+  width: 80%;
+}
+
+.image {
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.image, .form {
+  width: 30%;
+} */
+
+.image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 80%;
+  max-width: 200px;
+}
+
+.form {
+  width: 100%;
+}
+
+@media only screen and (min-width: 576px) {
+  .image, .form {
+    width: 50%
+  }
+  .image {
+    justify-content: flex-start;
+  }
+} 
+
+@media only screen and (min-width: 768px) {
+  .image, .form {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .image, .form {
+    width: 30%;
+  }
+}
+
+.input, .inputPassword {
+  border-radius: 5px !important;
+}
+
+.inputPassword {
+  padding-right: 2.5rem !important;
+}
+
+.iconDumb {
+  vertical-align: middle;
+  position: absolute;
+  right: 15px;
+}
+
+.title {
+  margin-bottom: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.errorMessage {
+  color: red;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.registroLink {
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight: 600;
+  color: #2962ff
+}
+
+.loginButton {
+  display: flex !important;
+  margin-bottom: 16px;
+  align-items:center !important;
+  justify-content: center !important;
+  border: 1px #d9d9db solid !important;
+}
+
+.loginOtherEmail {
+  margin-bottom: 16px;
+  border: 1px #d9d9db solid !important;
+}
+
+.loginButton:hover, .loginOtherEmail:hover {
+  box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+  -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+}
+
+.loginLogo {
+  height: 1.2rem;
+  margin-right: 1rem;
+}
+
+.inputMargin {
+  margin: 0px;
+}
+
+.test {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.errorGlobal {
+  background-color: #f8d7da;
+  border: 1px #f5c2c7 solid;
+  color: #842029;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+}
+
+.errorGlobalContainer {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  color: rgba(26,26,26,.7);
+  font-weight: 600;
+}
+
+.input {
+  border-radius: 5px !important;
+}
+
+.test {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputPassword {
+  border-radius: 5px !important;
+  padding-right: 2.5rem !important;
+  margin: 0 !important;
+}
+
+.iconDumb {
+  vertical-align: middle;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
+.input {
+  border-radius: 5px !important;
+}
+
+.errorInput {
+  border-radius: 5px !important;
+  border: 1px solid #fc9696 !important;
+}
+
+.errorInput:focus {
+  border-color: #fe8686 !important;
+  outline: 0 !important;;
+  box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25) !important;
+}
+
+.error, .description{
+  margin-top: 0.5rem;
+  color:red;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.enlaceErr, .enlaceErr:hover, .enlaceErr:active {
+ text-decoration: none;
+ color: #842029;
+ cursor: pointer;
+}
+
+.errAlternatives {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.errAlternative {
+  width: 48%;
+}
+
+.loadingButton {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingInButton {
+  height: 20px;
+}

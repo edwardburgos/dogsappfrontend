@@ -1,0 +1,129 @@
+.logo {
+    margin-right: 40px;
+    height: 21px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.navbar {
+    padding: 1% 5%;
+    background-color: #F2F2F2;
+    background-color: #fff; 
+    border-bottom: 1px;
+    box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+    -webkit-box-shadow: 1px 1px 12px -1px rgb(0 0 0 / 24%);
+    margin-bottom: 16px;
+}
+
+.sectionItem a .active {
+    color: red !important;
+}
+
+.sectionItem:hover {
+    font-weight: 600;
+}
+
+.navbarExpanded {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    padding: 1% 5% ;
+    box-sizing: border-box;
+    height: 80px;
+    top:0 ;
+    flex-wrap: wrap;
+}
+
+.navbarExpanded {
+    height: 200px;
+}
+
+.enlace, .enlaceLogin, .enlaceSignup {
+    color: #a8a7a7 !important;
+    margin-right: 0;
+    padding: 8px 0 !important;
+}
+
+.enlaceLogin, .enlaceSignup {
+    margin-right: 0;
+}
+
+.enlace:hover, .enlaceLogin:hover, .enlaceSignup:hover {
+    color: #646464 !important;
+}
+
+.enlaceActivo, .enlaceActivo:hover {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+.signedInfo {
+    display: block;
+}
+
+.icon {
+    vertical-align: middle;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.menu {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 30px;
+    border: 0;
+    display: none;
+    background-color: transparent;
+}
+
+.center {
+   display: flex;
+   align-items: center; 
+}
+
+.titleDropdown {
+    display: flex !important;
+    align-items: center !important;
+}
+.titleDropdown::after{
+    margin-left: 10px !important;
+}
+
+.profilePic {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.titleDropdown {
+    margin-top: 8px !important;
+}
+
+@media only screen and (min-width: 992px) {
+    .enlace, .enlaceLogin, .enlaceSignup {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+    }
+
+    .enlace, .enlaceLogin, .enlaceSignup {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .titleDropdown {
+        margin-top: 0 !important;
+        padding-top: 3.5px !important;
+        padding-bottom: 3.5px !important;
+    }
+
+    .enlace {
+        margin-right: 20px
+    }
+}
