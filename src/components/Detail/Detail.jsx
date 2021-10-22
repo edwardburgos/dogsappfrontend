@@ -1,10 +1,9 @@
 import s from './Detail.module.css';
 import React, { useEffect, useState } from 'react';
 import axios from '../../axiosInterceptor';
-import { getUserInfo, showMessage } from '../../extras/globalFunctions';
+import { getUserInfo } from '../../extras/globalFunctions';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser, setCurrentDog, setPetBreed } from '../../actions';
-import { useHistory } from 'react-router';
 import Post from '../Post/Post';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
@@ -19,8 +18,6 @@ export default function Detail({ id }) {
 
     // Variables
     const dispatch = useDispatch();
-    const history = useHistory();
-
     // Hooks
 
     // This hook load the dog data
@@ -38,7 +35,7 @@ export default function Detail({ id }) {
         }
         findDog(id);
         return () => source.cancel("Unmounted");
-    }, [id])
+    }, [dispatch, id])
 
     // This hook allow us to load the logued user
     useEffect(() => {
@@ -158,6 +155,5 @@ export default function Detail({ id }) {
                 <MainError mainErr={errGlobal} />
             }
         </div>
-
     );
 }

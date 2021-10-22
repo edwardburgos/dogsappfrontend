@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions';
 import { uploadImage, uploadConfirmedImage } from '../../extras/firebase';
 import { getUserInfo, showMessage, validURL, logout } from '../../extras/globalFunctions';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { deleteImage } from '../../extras/firebase';
 import { Modal, Button } from 'react-bootstrap';
 import { eyeOutline, eyeOffOutline } from "ionicons/icons";
@@ -54,7 +54,6 @@ export default function Profile() {
 
   // Variables
   const dispatch = useDispatch();
-  const history = useHistory();
 
   // Hooks
 
@@ -82,6 +81,7 @@ export default function Profile() {
       axios.delete(`/users/notUsed/${user.username}`)
 
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch])
 
   // This hook allows us to update the user information showed in the component when the first one change
@@ -201,16 +201,6 @@ export default function Profile() {
     }
   }
 
-  // This function allows us to delete an account
-  async function deleteAccount() {
-    alert('PEPAS')
-
-    // params: {
-    //   product: this.product
-    // }
-    ///axios.delete(`/users/${}`)
-  }
-
   async function handleConfirmationSubmit(e) {
     e.preventDefault();
     try {
@@ -257,10 +247,8 @@ export default function Profile() {
   async function sendEmailConfirmation() {
     setSendingDeletionEmail(true)
     try {
-      console.log(user.email)
       await axios.post('/users/deleteAccountEmail', { emailUsername: user.email })
     } catch (e) {
-      console.log(e)
       setErrGlobal('Sorry, an error occurred');
     }
     setSendingDeletionEmail(false)
@@ -269,7 +257,7 @@ export default function Profile() {
   async function definePassword(e) {
     e.preventDefault()
     try {
-      const login = await axios.post(`/users/definePasswordWithEmail`, {
+      await axios.post(`/users/definePasswordWithEmail`, {
         emailORusername: user.email,
         password: newPassword,
       })
@@ -351,7 +339,6 @@ export default function Profile() {
                     <div className={`${s.loadingButton} w-100 btn btn-danger disabled`}>
                       <img className={s.loadingInButton} src={loading} alt='loadingGif'></img>
                     </div>
-
                 }
               </div>
 
@@ -532,9 +519,6 @@ export default function Profile() {
           </form>
         </Modal.Body>
       </Modal>
-
     </>
   );
 }
-
-//disabled={modalButtonState}

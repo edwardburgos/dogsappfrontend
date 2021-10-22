@@ -1,11 +1,8 @@
 import s from './Card.module.css';
 import React from 'react';
-import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom'
 
 export default function Card({ name, img, temperament, id, origin }) {
-  // Variables
-  const history = useHistory();
 
   return (
     <Link to={`/detail/${id}`} className={`${origin === "publicProfile" ? s.cardPublicProfile : ''} ${s.card} linkRR`}>

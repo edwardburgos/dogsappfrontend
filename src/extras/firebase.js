@@ -15,7 +15,6 @@ export const app = firebase.apps.length === 0 ?
     :
     firebase;
 
-
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export async function uploadImage(username, imageAsFile) {
@@ -60,7 +59,6 @@ export async function uploadConfirmedPetImage(pet, imageAsFile) {
 
 export async function deleteImage(origin, fileName) {
     try {
-        console.log(fileName)
         if (origin === 'cancelUser') await app.storage().ref('testsProfilePictures').child(`${fileName}ProfilePic`).delete();
         if (origin === 'cancelPet') await app.storage().ref('testsPetsPictures').child(fileName).delete();
     } catch (e) {

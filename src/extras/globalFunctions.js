@@ -62,20 +62,8 @@ export function logout() {
 }
 
 export function isLoggedIn() {
-    // if (!Object.keys(await getUserInfo()).length) { logout(); return false; }
-    // return true
-
-
-    // getUserInfo().then(response => {
-    //     if (!Object.keys(response).length) { logout(); return false; }
-    //     return true
-    // })
-
-
     return moment().isBefore(getExpiration(), "second");
 }
-
-
 
 export async function getCountry(cancelToken) {
     try {

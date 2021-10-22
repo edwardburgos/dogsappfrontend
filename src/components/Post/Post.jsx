@@ -1,5 +1,5 @@
 import s from './Post.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { heartOutline, heart, ellipsisHorizontal } from 'ionicons/icons';
 import { IonIcon } from '@ionic/react';
 import { Modal, Button } from 'react-bootstrap';
@@ -8,8 +8,6 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import axios from '../../axiosInterceptor.js'
 import { showMessage, getUserInfo } from '../../extras/globalFunctions';
 import { setUser, setPublicUser, setCurrentDog, setCommunityDogs } from '../../actions';
-
-
 
 export default function Post({ name, img, id, likesCount, owner, likes, origin, dog }) {
   // Redux states
@@ -60,8 +58,6 @@ export default function Post({ name, img, id, likesCount, owner, likes, origin, 
       showMessage(e.response.data)
     }
   }
-
-  
 
   // This funtion allows us to delete a pet
   async function deletePet() {

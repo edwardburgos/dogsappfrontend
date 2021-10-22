@@ -8,12 +8,11 @@ import { setCommunityDogs, setUser } from '../../actions';
 import { getUserInfo } from '../../extras/globalFunctions';
 
 export default function Community() {
-
   // Own states
   const [errGlobal, setErrGlobal] = useState('');
   const communityDogs = useSelector(state => state.communityDogs);
 
-
+  // Variables
   const dispatch = useDispatch();
 
   // Hooks
@@ -48,7 +47,7 @@ export default function Community() {
     }
     getCommunity();
     return () => source.cancel("Unmounted");
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={s.container}>
@@ -69,7 +68,6 @@ export default function Community() {
             </>
             :
             <Loading />
-
       }
     </div>
   );

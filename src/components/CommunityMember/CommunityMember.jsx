@@ -17,10 +17,8 @@ export default function CommunityMember({ fullname, profilepic, username, countr
             <img className={s.flag} src={flag} alt={`${country} flag`} />
             <p className='mb-0'>{country}</p>
           </div>
-
         </div>
       </div>
-
     </Link>
   );
 }

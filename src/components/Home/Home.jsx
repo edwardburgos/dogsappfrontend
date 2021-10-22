@@ -5,7 +5,6 @@ import Card from '../Card/Card';
 import * as actionsCreators from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import PaginationComponent from '../PaginationComponent/PaginationComponent';
-import loading from '../../img/loadingGif.gif';
 import { getDogs, getTemperaments, getUserInfo } from '../../extras/globalFunctions';
 import emptyVector from '../../img/empty.svg';
 import Loading from '../Loading/Loading';
@@ -23,29 +22,22 @@ export default function Home() {
   const [temperaments, setTemperaments] = useState([]);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [temperament, setTemperament] = useState('');
   const [errorGlobal, setErrorGlobal] = useState('')
   const [dogs, setDogs] = useState([])
   const [showFilterModal, setShowFilterModal] = useState(false)
   const [selectedTemperaments, setSelectedTemperaments] = useState([])
   const [searchTermModal, setSearchTermModal] = useState('')
   const [filterTemperaments, setFilterTemperaments] = useState([])
+
   // Variables
   const dispatch = useDispatch();
 
   // Hooks
 
-  useEffect(() => {
-    console.log(selectedTemperaments)
-  }, [selectedTemperaments])
-
-
-
-
   // This hooks allows us to stop loading when the results of the page are ready 
   useEffect(() => {
     dispatch(actionsCreators.setLoading(false))
-  }, [actualPageRedux])
+  }, [dispatch, actualPageRedux])
 
   // This hook load the dogs and the temperaments for the filter
   useEffect(() => {
@@ -100,19 +92,6 @@ export default function Home() {
     if (!action && currentTemperaments.length) finalResult = finalResult.filter(e => e.temperament ? currentTemperaments.length === currentTemperaments.filter(temperament => e.temperament.includes(temperament)).length : false)
     if (action === 'add') finalResult = finalResult.filter(e => e.temperament ? currentTemperaments.length + 1 === [...currentTemperaments, componentValue].filter(temperament => e.temperament.includes(temperament)).length : false)
     if (action === 'delete' && currentTemperaments.length !== 1) finalResult = finalResult.filter(e => e.temperament ? currentTemperaments.length - 1 === currentTemperaments.filter(e => e !== componentValue).filter(temperament => e.temperament.includes(temperament)).length : false)
-
-
-
-
-    // if (componentId === 'searchTerm') { setSearchTerm(componentValue); finalResult = base.filter((e) => e.name.toLowerCase().includes(componentValue.toLowerCase()))}} else { if (searchTerm) { finalResult = dogs.filter((e) => e.name.toLowerCase().includes(searchTerm.toLowerCase())) } else { finalResult = dogs } }
-    // if (componentId === 'deleteSearch') { if (searchTerm) { finalResult = dogs; setSearchTerm(''); } else { return } }
-    // if (currentTemperaments) console.log(currentTemperaments, componentValue, currentTemperaments.includes(componentValue), 'INCLUIDO')
-    // if (componentValue && (componentValue.toLowerCase() === componentId && !currentTemperaments.includes(componentValue))) {
-    //   finalResult = finalResult.filter(e => e.temperament ? currentTemperaments.length + 1 === [...currentTemperaments, componentValue].filter(temperament => e.temperament.includes(temperament)).length : false)
-    // } else if (componentValue && (componentValue.toLowerCase() === componentId && currentTemperaments.includes(componentValue) || `id${componentValue.toLowerCase()}` === componentId && currentTemperaments.includes(componentValue))) {
-    //   finalResult = finalResult.filter(e => e.temperament ? currentTemperaments.length - 1 === currentTemperaments.filter(e => e !== componentValue).filter(temperament => e.temperament.includes(temperament)).length : false)
-    //   console.log('AHORA', finalResult)
-    // }
     if (!finalResult.length) setError('Not results found')
     dispatch(actionsCreators.modifyFinalResult(finalResult))
   }
@@ -146,19 +125,6 @@ export default function Home() {
                       </div>
                     )}
                   </div>
-
-                  {/* <div className={s.marginTop}>
-                  <input className={s.searchInput}
-
-
-                </div> */}
-                  {/* <div className={s.marginTop}>
-                  <select onChange={e => filter(e)} id="temperament" value={temperament} className={s.selectInput}>
-                    <option key='default' value='default'>Select a temperament</option>
-                    {temperaments.map((e, i) => <option key={i} value={e}>{e}</option>)}
-                  </select>
-                  <button className={s.button} id="deleteTemperamentFilter" onClick={e => { filter(e) }}>Delete filter</button>
-                </div> */}
                 </div>
                 <div className={s.content}>
                   {finalResultRedux.length ?

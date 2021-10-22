@@ -6,9 +6,7 @@ import { getUserInfo } from '../../extras/globalFunctions';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions';
 
-
 export default function NotFound() {
-
     // Variables
     const dispatch = useDispatch();
 

@@ -1,7 +1,7 @@
 import s from './App.module.css';
 import axios from './axiosInterceptor';
 import { Route, Redirect, Switch, useLocation, useHistory } from 'react-router-dom';
-import { getUserInfo, getExpiration, logout, setLocalStorage, showMessage } from './extras/globalFunctions';
+import { getUserInfo, setLocalStorage, showMessage } from './extras/globalFunctions';
 import { useEffect, useState } from 'react';
 import { setUser } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,25 +23,17 @@ import jwtDecode from 'jwt-decode';
 import { Modal } from 'react-bootstrap'
 import { countries } from './extras/countries';
 
-
-
-
-
-
 function App() {
   // Redux states
 
   const user = useSelector(state => state.user)
 
-  const [loggedIn, setLoggedIn] = useState(false)
   const [googleProfile, setGoogleProfile] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [modalButtonState, setModalButtonState] = useState(true);
   const [country, setCountry] = useState('');
   const [username, setUsername] = useState('');
   const [errUsername, setErrUsername] = useState('');
-
-
 
   // This hook manage the modal button state
   useEffect(() => {
@@ -63,16 +55,12 @@ function App() {
     }
   }
 
-
-
   // Variables
   const dispatch = useDispatch();
   let query = new URLSearchParams(useLocation().search);
   const history = useHistory();
 
-
   async function onOneTapSignedIn(response) {
-    setLoggedIn(true)
     var decoded = jwtDecode(response.credential);
     try {
       if (Object.keys(decoded).length) {
@@ -95,7 +83,6 @@ function App() {
         }
       } else { dispatch(setUser({})); history.push('/home'); showMessage('Sorry, an error occurred'); }
     } catch (e) {
-      console.log(e)
       showMessage('Sorry, an error occurred');
     }
   }
@@ -121,15 +108,13 @@ function App() {
           window.google.accounts.id.prompt(notification => {
             //console.log('on prompt notification', notification)
           })
-        } else {
-          console.log(window.google)
         }
       })
     }
   cargaInicial();
   return () => source.cancel("Unmounted");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [dispatch])
-
 
 // This function allows us to register and login with Google
 async function handleModalSubmit(e) {
@@ -190,7 +175,6 @@ return (
               <Route path="/community" component={Community} />
               <Route path="/communityDogs" component={CommunityDogs} />
               <Route path="/auto/:reason/:token" render={({ match }) => <VerifyEmail reason={match.params.reason} token={match.params.token} expires={query.get("expires")} />} />
-              {/* <Route path="/verifyEmail/:token" render={({ match }) =>  ? <EditPet id={match.params.id} /> : <Redirect to="/home"/> }></Route> */}
               <Route path="/:username" render={({ match }) => <User username={match.params.username} />} />
             </Switch>
           </div>

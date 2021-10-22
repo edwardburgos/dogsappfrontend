@@ -8,12 +8,11 @@ import s from './Signup.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { eyeOutline, eyeOffOutline } from "ionicons/icons";
 import { IonIcon } from '@ionic/react';
-import { setLocalStorage, getCountry, getUserInfo, showMessage } from '../../extras/globalFunctions';
+import { getCountry, getUserInfo, showMessage } from '../../extras/globalFunctions';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions';
 import { Modal } from 'react-bootstrap';
 import Loading from '../Loading/Loading';
-
 
 export default function Signup() {
     // Own states
@@ -33,7 +32,6 @@ export default function Signup() {
     const [showPassword, setShowPassword] = useState(false)
     const [showVerify, setShowVerify] = useState(false)
     const [inProcess, setInProcess] = useState(false)
-
 
     // Variables
     const history = useHistory();
@@ -133,7 +131,6 @@ export default function Signup() {
             showMessage(`${availableUsername.data.user} your registration was successful`);
             setShowVerify(true);
         } catch (e) {
-            console.log(e)
             dispatch(setUser({}))
             setButtonState(true);
             if (e.response.status === 409 && e.response.data.msg.includes('email')) { setInProcess(false); return setErrEmail(e.response.data.msg); }

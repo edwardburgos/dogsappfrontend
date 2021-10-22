@@ -52,8 +52,6 @@ export default function NavBar() {
     }
   }, [ref, navExpanded]);
 
-  
-
   return (
     <Navbar expand="lg" className={s.navbar} id="navBar" expanded={navExpanded} fixed="top" ref={ref}>
       <Navbar.Brand as={NavLink} to="/home" onClick={() => setNavExpanded(false)} className={s.brand}>
@@ -69,16 +67,12 @@ export default function NavBar() {
         {
           user ? 
           Object.keys(user).length ?
-            //   {/* // <Navbar.Text className={s.signedInfo}>
-            // //   <a href="#login">{user.name}</a>
-            // // </Navbar.Text> */}
             <Dropdown align={{ lg: 'end' }}>
               <Dropdown.Toggle variant="light" id="dropdown-basic" className={s.titleDropdown}>
                 <img className={s.profilePic} src={user.profilepic} alt='User profile'></img>
                 <span>{user.fullname}</span>
               </Dropdown.Toggle>
               <Dropdown.Menu> 
-              {/* className={s.enlaceSignup} activeClassName={s.enlaceActivo} */}
                 <Dropdown.Item as={NavLink} to={`/${user.username}`} onClick={() => { setNavExpanded(false);}}>My profile</Dropdown.Item>
                 <Dropdown.Item onClick={() => { setNavExpanded(false); logout(); dispatch(setUser({})); showMessage(`Logged out successfully`);}}>Log out</Dropdown.Item>
               </Dropdown.Menu>

@@ -1,18 +1,14 @@
 import s from './User.module.css';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import loading from '../../img/loadingGif.gif';
 import { countries } from '../../extras/countries';
 import axios from '../../axiosInterceptor';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import { setUser, setPublicUser } from '../../actions';
-import { uploadImage, uploadConfirmedImage } from '../../extras/firebase';
-import { getUserInfo, showMessage, validURL } from '../../extras/globalFunctions';
+import { getUserInfo } from '../../extras/globalFunctions';
 import Post from '../Post/Post';
-import Card from '../Card/Card';
 import emptyVector from '../../img/empty.svg';
-import { useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import NotFound from '../NotFound/NotFound';
 import Loading from '../Loading/Loading';
@@ -21,7 +17,6 @@ export default function User({ username }) {
   // Redux states
   const publicUser = useSelector(state => state.publicUser)
   const user = useSelector(state => state.user)
-
 
   // Own states
   const [errGlobal, setErrGlobal] = useState('');
@@ -101,14 +96,12 @@ export default function User({ username }) {
               {
                 publicUser.pets.length ?
                   <>
-                    {/* <div className={publicUser.dogs.length ? s.specimens : s.onlyColumn}> */}
                     <h2 className={s.petsTitle}>Dogs</h2>
                     <div className={s.postsContainer}>
                       {
                         publicUser.pets.map((e, i) => <Post origin='publicProfile' key={i} id={e.id} name={e.name} img={e.photo} likesCount={e.likesCount} owner={publicUser} likes={e.likes} dog={e.dog}></Post>)
                       }
                     </div>
-                    {/* </div> */}
                   </>
                   :
                   <>

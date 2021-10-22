@@ -2,11 +2,9 @@ import s from './RegisterPet.module.css';
 import React, { useEffect, useState } from 'react';
 import axios from '../../axiosInterceptor';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeCircleOutline } from 'ionicons/icons';
-import { IonIcon } from '@ionic/react';
 import { Link, useHistory } from 'react-router-dom';
 import loading from '../../img/loadingGif.gif';
-import { getTemperaments, showMessage, validURL, getUserInfo, getDogsNames } from '../../extras/globalFunctions';
+import { showMessage, validURL, getUserInfo, getDogsNames } from '../../extras/globalFunctions';
 import { setPetBreed, setUser } from '../../actions';
 import 'react-toastify/dist/ReactToastify.css';
 import { uploadConfirmedPetImage } from '../../extras/firebase';
@@ -14,7 +12,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { Modal } from 'react-bootstrap'
 import Loading from '../Loading/Loading';
 import MainError from '../MainError/MainError';
-
 
 export default function RegisterPet() {
     // Redux states
@@ -34,17 +31,19 @@ export default function RegisterPet() {
     const [dogs, setDogs] = useState([])
     const [dogId, setDogId] = useState(petBreed ? petBreed : 'default')
     const [selectedDog, setSelectedDog] = useState({})
-    const [photoImageName, setPhotoImageName] = useState(uuidv4());
+    const [photoImageName, setPhotoImageName] = useState('');
     const [showModal, setShowModal] = useState(false)
 
     // Variables
     const history = useHistory();
     const dispatch = useDispatch();
-
+    
     // Hooks 
 
     // This hook allow us to load the logued user
     useEffect(() => {
+        const photoId = uuidv4()
+        setPhotoImageName(photoId)
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
         async function updateUser() {
@@ -57,7 +56,7 @@ export default function RegisterPet() {
         return () => {
             source.cancel("Unmounted");
             dispatch(setPetBreed(''))
-            axios.delete(`/pets/notUsed/${photoImageName}`)
+            axios.delete(`/pets/notUsed/${photoId}`)
         }
     }, [dispatch])
 

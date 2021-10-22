@@ -1,18 +1,15 @@
 import s from './Pet.module.css';
 import React, { useEffect, useState } from 'react';
-import loading from '../../img/loadingGif.gif';
 import axios from '../../axiosInterceptor';
 import { getUserInfo, showMessage } from '../../extras/globalFunctions';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser, setCurrentDog } from '../../actions';
+import { setUser } from '../../actions';
 import { heartOutline, heart } from 'ionicons/icons';
 import { Modal, Button } from 'react-bootstrap';
 import { IonIcon } from '@ionic/react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import MainError from '../MainError/MainError';
-
-
 
 export default function Pet({ id }) {
     // Redux states
@@ -28,7 +25,6 @@ export default function Pet({ id }) {
     // Variables
     const dispatch = useDispatch();
     const history = useHistory();
-    const location = useLocation();
 
     // Hooks
 
@@ -87,9 +83,7 @@ export default function Pet({ id }) {
         } catch (e) {
             showMessage(e.response.data)
         }
-
     }
-
 
     return (
         <>
@@ -194,7 +188,6 @@ export default function Pet({ id }) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-
         </>
     );
 }

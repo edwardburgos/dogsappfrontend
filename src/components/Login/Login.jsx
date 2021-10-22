@@ -21,7 +21,6 @@ export default function Login() {
     const [errEmailUsername, setErrEmailUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errPassword, setErrPassword] = useState('');
-    const [wrongCredentials, setWrongCredentials] = useState('');
     const [errGlobal, setErrGlobal] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [country, setCountry] = useState('');
@@ -73,11 +72,9 @@ export default function Login() {
         return () => source.cancel("Unmounted");
     }, [])
 
-
     // This hook manage the button state
     useEffect(() => {
         if (errEmailUsername || errPassword || !emailUsername || !password) return setButtonState(true);
-        setWrongCredentials(false);
         setButtonState(false);
     }, [errEmailUsername, errPassword, emailUsername, password])
 
@@ -93,7 +90,6 @@ export default function Login() {
         setModalButtonState(false);
         setPassword('');
         setErrPassword('');
-        setWrongCredentials('');
     }, [onlyPassword])
 
     // Functions
@@ -158,7 +154,6 @@ export default function Login() {
                 }
             } else { dispatch(setUser({})); showMessage('Sorry, an error occurred'); }
         } catch (e) {
-            console.log(e)
             if (e.code !== "auth/popup-closed-by-user") {
                 dispatch(setUser({})); 
                 showMessage('Sorry, an error occurred');
@@ -234,8 +229,6 @@ export default function Login() {
             await axios.post('/users/newVerificationEmail', { emailUsername });
             setShowVerify(true)
         } catch (e) {
-            console.log(e)
-            //   if (e.response.data.msg) return setErrGlobal(e.response.data.msg)
             setErrGlobal('Sorry, an error occurred');
         }
         setSendingNewVerification(false)
@@ -248,7 +241,6 @@ export default function Login() {
             await axios.post('/users/loginWithoutPassword', { emailUsername })
             setShowLoginWithoutPassword(true)
         } catch (e) {
-            console.log(e)
             setErrGlobal('Sorry, an error occurred');
         }
         setFirstOptionLoading(false)
@@ -261,7 +253,6 @@ export default function Login() {
             await axios.post('/users/resetPassword', { emailUsername })
             setShowResetPassword(true)
         } catch (e) {
-            console.log(e)
             setErrGlobal('Sorry, an error occurred');
         }
         setSecondOptionLoading(false)
@@ -273,7 +264,6 @@ export default function Login() {
             await axios.post('/users/definePassword', { emailUsername })
             setShowDefinePassword(true)
         } catch (e) {
-            console.log(e)
             setErrGlobal('Sorry, an error occurred');
         }
         setSendingPasswordEmail(false)
@@ -289,14 +279,13 @@ export default function Login() {
                         </div>
                         <div className={s.form}>
                             <h1 className={s.title}>Log in</h1>
-
                             <div className={s.errorGlobalContainer}>
                                 {errGlobal ?
                                     <div className={s.errorGlobal}>
                                         {!sendingNewVerification ?
                                             <>
                                                 <span>{errGlobal}</span>
-                                                {errGlobal === 'Your account is not verified yet' ? <><span>, please check your email to do it or click </span><a className={`${s.enlaceErr} bold`} onClick={() => newVerificationLink()}>here</a><span> to get another verification link</span></> : null}
+                                                {errGlobal === 'Your account is not verified yet' ? <><span>, please check your email to do it or click </span><span className={`${s.enlaceErr} bold`} onClick={() => newVerificationLink()}>here</span><span> to get another verification link</span></> : null}
                                             </>
                                             :
                                             <img className={s.loadingInButton} src={loading} alt='loadingGif'></img>
@@ -351,8 +340,6 @@ export default function Login() {
                                                 </> : null
                                         }
                                     </>
-
-
                             }
                             {
                                 onlyPassword ?
@@ -375,7 +362,6 @@ export default function Login() {
                                     <div className={s.division}>
                                         <span>Or</span>
                                     </div>
-
                             }
 
                             <div className={`w-100 btn ${s.loginButton}`} onClick={loginConGoogle}>

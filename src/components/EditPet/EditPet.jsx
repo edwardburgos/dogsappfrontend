@@ -2,11 +2,9 @@ import s from './EditPet.module.css';
 import React, { useEffect, useState } from 'react';
 import axios from '../../axiosInterceptor';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeCircleOutline } from 'ionicons/icons';
-import { IonIcon } from '@ionic/react';
 import { Link, useHistory } from 'react-router-dom';
 import loading from '../../img/loadingGif.gif';
-import { getTemperaments, showMessage, validURL, getUserInfo, getDogsNames } from '../../extras/globalFunctions';
+import { showMessage, validURL, getUserInfo, getDogsNames } from '../../extras/globalFunctions';
 import { setUser } from '../../actions';
 import 'react-toastify/dist/ReactToastify.css';
 import { uploadConfirmedPetImage, uploadPetImage } from '../../extras/firebase';
@@ -82,6 +80,7 @@ export default function EditPet({ id }) { // si me psan el di seleccionar la raz
     useEffect(() => {
         if (uploading || nameErr || !name || !photo || dogId === 'default' || (name === pet.name && photo === pet.photo && parseInt(dogId) === pet.dogId)) return setButtonState(true);
         return setButtonState(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [uploading, nameErr, name, photo, dogId])
 
     // This hook is to get the dogs name
@@ -99,6 +98,7 @@ export default function EditPet({ id }) { // si me psan el di seleccionar la raz
             source.cancel("Unmounted")
             axios.delete(`/pets/notUsed/${id}`)
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch])
 
     // This hook allows us to get the dog information of the selected dog breed in order to display this data to the user
@@ -178,8 +178,6 @@ export default function EditPet({ id }) { // si me psan el di seleccionar la raz
                         Object.keys(user).length ?
                             <div className={s.content}>
                                 <h1 className={s.title}>Edit pet</h1>
-
-
                                 <div className={s.errorGlobalContainer}>
                                     {errGlobal ? <p className={s.errorGlobal}>{errGlobal}</p> : null}
                                 </div>

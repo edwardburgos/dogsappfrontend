@@ -6,7 +6,6 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { store } from './store.js';
 import { Provider } from 'react-redux';
 import App from './App';
-import LandingPage from './components/LandingPage/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 ReactDOM.render(

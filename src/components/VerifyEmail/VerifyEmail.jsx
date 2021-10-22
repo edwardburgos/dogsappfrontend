@@ -1,33 +1,25 @@
 import s from './VerifyEmail.module.css';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom'
-import { setLocalStorage, getCountry, getUserInfo, showMessage, logout } from '../../extras/globalFunctions';
-import { useDispatch, useSelector } from 'react-redux';
+import { setLocalStorage, getUserInfo, showMessage } from '../../extras/globalFunctions';
+import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions';
 import axios from '../../axiosInterceptor';
 import { eyeOutline, eyeOffOutline } from "ionicons/icons";
 import { IonIcon } from '@ionic/react';
-import realAxios from 'axios'
-import loading from '../../img/loadingGif.gif';
+import realAxios from 'axios';
 import Loading from '../Loading/Loading';
 
-
 export default function VerifyEmail({ token, reason, expires }) {
-
-
-    // `${url}/${reason}/${token.token}?expires=${token.expires}`
 
     // Variables
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const [showCurrentPassword, setShowCurrentPassword] = useState(false)
     const [newPassword, setNewPassword] = useState('')
     const [errNewPassword, setErrNewPassword] = useState('')
     const [showNewPassword, setShowNewPassword] = useState(false)
     const [userInfo, setUserInfo] = useState({})
-    // const user = useSelector(state => state.user)
 
     // This hook is executed every time the page is reloaded
     useEffect(() => {
@@ -95,6 +87,7 @@ export default function VerifyEmail({ token, reason, expires }) {
             }
         }
         loginUser()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // This function allows us to handle the changes in the form
