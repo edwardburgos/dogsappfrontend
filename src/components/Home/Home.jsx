@@ -92,7 +92,7 @@ export default function Home() {
     let query = searchTerm;
     let action = ''
     if (componentValue && (componentValue.toLowerCase() === componentId && !currentTemperaments.includes(componentValue))) action = 'add'
-    if (componentValue && (componentValue.toLowerCase() === componentId && currentTemperaments.includes(componentValue) || `id${componentValue.toLowerCase()}` === componentId && currentTemperaments.includes(componentValue))) action = 'delete'
+    if (componentValue && ((componentValue.toLowerCase() === componentId || `id${componentValue.toLowerCase()}` === componentId) && currentTemperaments.includes(componentValue))) action = 'delete'
     if (!currentTemperaments) currentTemperaments = selectedTemperaments
     if (componentId === 'searchTerm') { setSearchTerm(componentValue); query = componentValue }
     if (componentId === 'deleteSearch') { setSearchTerm(''); query = '' }
