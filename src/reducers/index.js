@@ -2,7 +2,7 @@ const initialState = {
   actualPage: [],
   finalResult: [],
   clickedNumber: 1,
-  user: null,
+  user: {},
   publicUser: {},
   dog: {},
   petBreed: '',
