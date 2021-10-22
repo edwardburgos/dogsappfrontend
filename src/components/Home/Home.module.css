@@ -197,7 +197,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: calc(100% - 46px)
+    width: calc(100% - 36px)
 }
 
 .testModal {
@@ -215,8 +215,8 @@
 
 .filterIcon {
     display: block;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     margin-left: 16px;
 }
 
