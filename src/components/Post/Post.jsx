@@ -152,7 +152,7 @@ export default function Post({ name, img, id, likesCount, owner, likes, origin, 
               </>
               : null
           }
-          <div className={s.optionLast} onClick={() => { navigator.clipboard.writeText(`http://localhost:3000/dog/${id}`); setShowOptions(false); showMessage('Link copied to clipboard'); }}>Copy link</div>
+          <div className={s.optionLast} onClick={() => { navigator.clipboard.writeText(`${process.env.REACT_APP_CURRENT_URL}/dog/${id}`); setShowOptions(false); showMessage('Link copied to clipboard'); }}>Copy link</div>
         </Modal.Body>
       </Modal>
 
