@@ -73,7 +73,7 @@ export default function Community() {
             :
             <div className={s.emptyVectorContainer}>
               <img className={s.emptyVector} src={emptyVector} alt='Empty vector'></img>
-              <p className={s.noCommunityMembers}>No community dogs found</p>
+              <p className={s.noCommunityDogs}>No community dogs found</p>
             </div>
       }
     </div>
