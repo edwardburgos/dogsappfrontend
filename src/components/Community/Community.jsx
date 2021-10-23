@@ -7,6 +7,7 @@ import { countries } from '../../extras/countries';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions';
 import { getUserInfo } from '../../extras/globalFunctions';
+import emptyVector from '../../img/empty.svg';
 
 export default function Community() {
 
@@ -40,7 +41,7 @@ export default function Community() {
     async function getCommunity() {
       try {
         const users = await axios.get(`/users/communityAll`, { cancelToken: source.token })
-        setUsers(users.data.map(e => { return { ...e, flag: flags[`${countries.filter(country => country.name === e.country)[0].code.toLowerCase()}.svg`].default } }))
+        users.data.length ? setUsers(users.data.map(e => { return { ...e, flag: flags[`${countries.filter(country => country.name === e.country)[0].code.toLowerCase()}.svg`].default } })) : setUsers(null)
       } catch (e) {
         if (e.message !== "Unmounted") {
           setErrGlobal(e.response.data)
@@ -59,17 +60,23 @@ export default function Community() {
             <p className={s.errorGlobal}>{errGlobal}</p>
           </div>
           :
-          users.length ?
-            <>
-              <h1>Community</h1>
-              <div className={s.content}>
-                <div className={s.cardsContainer}>
-                  {users.map((e, i) => <CommunityMember key={i} fullname={e.fullname} profilepic={e.profilepic} username={e.username} country={e.country} flag={e.flag} />)}
+          users ?
+            users.length ?
+              <>
+                <h1>Community</h1>
+                <div className={s.content}>
+                  <div className={s.cardsContainer}>
+                    {users.map((e, i) => <CommunityMember key={i} fullname={e.fullname} profilepic={e.profilepic} username={e.username} country={e.country} flag={e.flag} />)}
+                  </div>
                 </div>
-              </div>
-            </>
+              </>
+              :
+              <Loading />
             :
-            <Loading />
+            <div className={s.emptyVectorContainer}>
+              <img className={s.emptyVector} src={emptyVector} alt='Empty vector'></img>
+              <p className={s.noCommunityMembers}>No community members found</p>
+            </div>
       }
     </div>
   );

@@ -20,3 +20,19 @@
     align-items: center;
     width: 100%;
 }
+
+.emptyVectorContainer {
+    width: 100%;
+}
+
+.emptyVector {
+    height: 100px;
+    width: 100px;
+}
+
+.noCommunityDogs {
+    font-size: 1.5rem;
+    font-weight: 400;
+    width: 100%;
+    margin: 16px 0 0 0;
+}

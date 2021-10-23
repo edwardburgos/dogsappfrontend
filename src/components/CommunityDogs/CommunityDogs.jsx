@@ -6,6 +6,7 @@ import Post from '../Post/Post';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCommunityDogs, setUser } from '../../actions';
 import { getUserInfo } from '../../extras/globalFunctions';
+import emptyVector from '../../img/empty.svg';
 
 export default function Community() {
   // Own states
@@ -38,7 +39,7 @@ export default function Community() {
     async function getCommunity() {
       try {
         const pets = await axios.get(`/pets/communityAll`, { cancelToken: source.token })
-        dispatch(setCommunityDogs(pets.data))
+        pets.data.length ? dispatch(setCommunityDogs(pets.data)) : dispatch(setCommunityDogs(null))
       } catch (e) {
         if (e.message !== "Unmounted") {
           setErrGlobal(e.response.data)
@@ -57,17 +58,23 @@ export default function Community() {
             <p className={s.errorGlobal}>{errGlobal}</p>
           </div>
           :
-          communityDogs.length ?
-            <>
-              <h1 className='text-center'>Community dogs</h1>
-              <div className={s.content}>
-                <div className={s.cardsContainer}>
-                  {communityDogs.map((e, i) => <Post key={i} origin="communityDogs" id={e.id} name={e.name} img={e.photo} likesCount={e.likesCount} owner={e.user} likes={e.likes} dog={e.dog} />)}
+          communityDogs ?
+            communityDogs.length ?
+              <>
+                <h1 className='text-center'>Community dogs</h1>
+                <div className={s.content}>
+                  <div className={s.cardsContainer}>
+                    {communityDogs.map((e, i) => <Post key={i} origin="communityDogs" id={e.id} name={e.name} img={e.photo} likesCount={e.likesCount} owner={e.user} likes={e.likes} dog={e.dog} />)}
+                  </div>
                 </div>
-              </div>
-            </>
+              </>
+              :
+              <Loading />
             :
-            <Loading />
+            <div className={s.emptyVectorContainer}>
+              <img className={s.emptyVector} src={emptyVector} alt='Empty vector'></img>
+              <p className={s.noCommunityMembers}>No community dogs found</p>
+            </div>
       }
     </div>
   );
