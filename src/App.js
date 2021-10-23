@@ -1,6 +1,6 @@
 import s from './App.module.css';
 import axios from './axiosInterceptor';
-import { Route, Redirect, Switch, useLocation, useHistory } from 'react-router-dom';
+import { Route, Redirect, Switch, useLocation } from 'react-router-dom';
 import { getUserInfo, setLocalStorage, showMessage } from './extras/globalFunctions';
 import { useEffect, useState } from 'react';
 import { setUser } from './actions';
@@ -34,7 +34,7 @@ function App() {
   const [country, setCountry] = useState('');
   const [username, setUsername] = useState('');
   const [errUsername, setErrUsername] = useState('');
-
+  
   // This hook manage the modal button state
   useEffect(() => {
     if (errUsername || !username || country === "Select a country") return setModalButtonState(true);
@@ -58,7 +58,6 @@ function App() {
   // Variables
   const dispatch = useDispatch();
   let query = new URLSearchParams(useLocation().search);
-  const history = useHistory();
 
   async function onOneTapSignedIn(response) {
     var decoded = jwtDecode(response.credential);
@@ -79,27 +78,23 @@ function App() {
           showMessage(`${logged.data.user} your login was successful`);
           const user = await getUserInfo();
           dispatch(setUser(user))
-          history.push('/home')
         }
-      } else { dispatch(setUser({})); history.push('/home'); showMessage('Sorry, an error occurred'); }
+      } else { dispatch(setUser({})); showMessage('Sorry, an error occurred'); }
     } catch (e) {
       showMessage('Sorry, an error occurred');
     }
   }
 
   useEffect(() => {
-    console.log('OTRRO GTAOy')
     const cancelToken = axios.CancelToken;
     const source = cancelToken.source();
     async function cargaInicial() {
       const user = await getUserInfo(source.token);
       if (user !== "Unmounted") {
         dispatch(setUser(user));
-        history.push('/home')
       }
       if (window.google) {
         if (!Object.keys(user).length) {
-          console.log('SG', user)
           window.google.accounts.id.initialize({
             client_id: process.env.REACT_APP_CLIENT_ID,
             ux_mode: 'redirect', // This allows us to work in incognite mode
@@ -113,7 +108,6 @@ function App() {
         document.getElementById('googleOneTap').addEventListener('load', () => {
           // Patiently waiting to do the thing 
           if (!Object.keys(user).length && window.google) {
-            console.log('SG', user)
             window.google.accounts.id.initialize({
               client_id: process.env.REACT_APP_CLIENT_ID,
               ux_mode: 'redirect', // This allows us to work in incognite mode
@@ -158,16 +152,14 @@ function App() {
         setShowModal(false);
         const user = await getUserInfo();
         dispatch(setUser(user))
-        history.push('/home')
         showMessage(`${logged.data.user} your login was successful`);
       } catch (e) {
         dispatch(setUser({}));
-        history.push('/home')
         if (e.response.status === 409 && e.response.data.msg === "There is already a user with this username") return setErrUsername(e.response.data.msg)
         showMessage('Sorry, an error occurred');
       }
     } else {
-      dispatch(setUser({})); history.push('/home'); return showMessage('Sorry, an error occurred');
+      dispatch(setUser({})); return showMessage('Sorry, an error occurred');
     }
   }
 
