@@ -7,13 +7,13 @@
 
 .cardDetail {
   width: 50%;
-  text-align: center;
+  text-align: left;
   padding-right: 5%;
 }
 
 .onlyColumn {
   width: 50%;
-  text-align: center;
+  text-align: left;
 }
 
 .specimens {
@@ -62,16 +62,36 @@
 
 .title {
   margin-bottom: 32px;
+  text-align: center;
 }
 
+.temperamentLabel {
+  font-weight: 600;
+  display: block;
+}
 .label {
   font-weight: 600;
+  display: block;
+  width: 30%;
+}
+
+.detail {
+  display: block;
+  padding-left: 10px;
+  width: 70%;
+}
+
+.descriptionSection {
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .temperamentsContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 8px 0;
 }
 

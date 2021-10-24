@@ -64,7 +64,7 @@ export default function Detail({ id }) {
                             <img src={dog.image} className={s.image} alt={dog.name}></img>
                             {dog.temperament ?
                                 <>
-                                    <span className={s.label}>Temperament :</span>
+                                    <span className={s.temperamentLabel}>Temperament: </span>
                                     <div className={s.temperamentsContainer}>
                                         {dog.temperament.split(', ').map((e, i) =>
                                             <div key={i} className={s.test}>
@@ -78,54 +78,54 @@ export default function Detail({ id }) {
                             }
                             {
                                 dog.height ?
-                                    <div>
-                                        <span className={s.label}>Height :</span>
-                                        <p>{dog.height}</p>
+                                <div className={s.descriptionSection}>
+                                        <span className={s.label}>Height: </span>
+                                        <span className={s.detail}>{dog.height}</span>
                                     </div>
                                     :
                                     null
                             }
                             {
                                 dog.weight ?
-                                    <div>
-                                        <span className={s.label}>Weight :</span>
-                                        <p>{dog.weight}</p>
+                                <div className={s.descriptionSection}>
+                                        <span className={s.label}>Weight: </span>
+                                        <span className={s.detail}>{dog.weight}</span>
                                     </div>
                                     :
                                     null
                             }
                             {
                                 dog.lifespan ?
-                                    <div>
-                                        <span className={s.label}>Lifespan :</span>
-                                        <p>{dog.lifespan}</p>
+                                <div className={s.descriptionSection}>
+                                        <span className={s.label}>Lifespan: </span>
+                                        <span className={s.detail}>{dog.lifespan}</span>
                                     </div>
                                     :
                                     null
                             }
                             {
                                 dog.bred_for ?
-                                    <div>
-                                        <span className={s.label}>Bred for reason :</span>
-                                        <p>{dog.bred_for}</p>
+                                <div className={s.descriptionSection}>
+                                        <span className={s.label}>Bred for reason: </span>
+                                        <span className={s.detail}>{dog.bred_for}</span>
                                     </div>
                                     :
                                     null
                             }
                             {
                                 dog.breed_group ?
-                                    <div>
-                                        <span className={s.label}>Breed group :</span>
-                                        <p>{dog.breed_group}</p>
+                                    <div className={s.descriptionSection}>
+                                        <span className={s.label}>Breed group: </span>
+                                        <span className={s.detail}>{dog.breed_group}</span>
                                     </div>
                                     :
                                     null
                             }
                             {
                                 dog.origin ?
-                                    <div>
-                                        <span className={s.label}>Origin :</span>
-                                        <p>{dog.origin}</p>
+                                <div className={s.descriptionSection}>
+                                        <span className={s.label}>Origin: </span>
+                                        <span className={s.detail}>{dog.origin}</span>
                                     </div>
                                     :
                                     null
