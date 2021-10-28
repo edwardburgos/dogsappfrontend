@@ -4,6 +4,7 @@
     height: calc(100vh - 86px);
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .label {
