@@ -159,10 +159,10 @@ export default function VerifyEmail({ token, reason, expires }) {
     }
 
     return (
-        <>
+        <div className={s.container}>
             {
                 ['resetPassword', 'definePassword'].includes(reason) ?
-                    <div className={s.container}>
+                    <>
                         <form onSubmit={reason === 'resetPassword' ? changePassword : definePassword} className={s.form}>
                             <div className={errNewPassword ? '' : 'mb-3'}>
                                 <label className={s.label} htmlFor="passNewValue">{reason === 'resetPassword' ? 'New password' : 'Password'}</label>
@@ -174,11 +174,11 @@ export default function VerifyEmail({ token, reason, expires }) {
                             {errNewPassword ? <small className={s.error}>{errNewPassword}</small> : null}
                             <input type="submit" value="Confirm password" disabled={!newPassword || errNewPassword} className={`w-100 btn btn-primary`} />
                         </form>
-                    </div>
+                    </>
                     :
                     <Loading />
             }
-        </>
+        </div>
     );
 }
 
