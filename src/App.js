@@ -1,7 +1,7 @@
 import s from './App.module.css';
 import axios from './axiosInterceptor';
 import { Route, Redirect, Switch, useLocation } from 'react-router-dom';
-import { getUserInfo, setLocalStorage, showMessage } from './extras/globalFunctions';
+import { getUserInfo, setLocalStorage, showMessage, getCountry } from './extras/globalFunctions';
 import { useEffect, useState } from 'react';
 import { setUser } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -40,6 +40,18 @@ function App() {
     if (errUsername || !username || country === "Select a country") return setModalButtonState(true);
     setModalButtonState(false);
   }, [errUsername, username, country])
+
+  // This hook set the country of the user
+  useEffect(() => {
+    const cancelToken = axios.CancelToken;
+    const source = cancelToken.source();
+    async function getUserCountry() {
+        const response = await getCountry(source.token);
+        setCountry(response);
+    }
+    getUserCountry();
+    return () => source.cancel("Unmounted");
+}, [])
 
   // This function makes the form dynamic
   function handleChange(e) {
