@@ -10,3 +10,41 @@
   flex-wrap: wrap;
   text-align: center;
 } 
+
+.label {
+  margin-bottom: 0.5rem;
+  color: rgba(26,26,26,.7);
+  font-weight: 600;
+}
+
+.input {
+  border-radius: 5px !important;
+}
+
+.errorInput {
+  border-radius: 5px !important;
+  border: 1px solid #fc9696 !important;
+}
+
+.errorInput:focus {
+  border-color: #fe8686 !important;
+  outline: 0 !important;;
+  box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.25) !important;
+}
+
+.error, .description{
+  margin-top: 0.5rem;
+  color:red;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.label {
+  margin-bottom: 0.5rem;
+  color: rgba(26,26,26,.7);
+  font-weight: 600;
+}
+
+.input {
+  border-radius: 5px !important;
+}
